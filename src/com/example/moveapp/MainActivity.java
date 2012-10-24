@@ -36,13 +36,13 @@ public class MainActivity extends Activity implements SensorEventListener{
     
     public void onSensorChanged(SensorEvent event) {
         synchronized (this) {
-           // long current_time = event.timestamp;
+            long current_time = event.timestamp;
              
             curX = event.values[0];
             curY = event.values[1];
             curZ = event.values[2];
              
-         /*   if (prevX == 0 && prevY == 0 && prevZ == 0) {
+            if (prevX == 0 && prevY == 0 && prevZ == 0) {
                 last_update = current_time;
                 last_movement = current_time;
                 prevX = curX;
@@ -52,8 +52,9 @@ public class MainActivity extends Activity implements SensorEventListener{
      
             long time_difference = current_time - last_update;
             if (time_difference > 0) {
-                float movement = Math.abs((curX + curY + curZ) - (prevX - prevY - prevZ)) / time_difference;
-                int limit = 1500;
+                //float movement = Math.abs((curX + curY + curZ) - (prevX - prevY - prevZ)) / time_difference;
+            	float movement = (float) Math.abs(Math.sqrt((Math.pow(curX-prevX,2)) + (Math.pow(curY - prevY, 2)) +(Math.pow(curZ - prevZ, 2))));
+            	int limit = 1500;
                 float min_movement = 1E-6f;
                 if (movement > min_movement) {
                     if (current_time - last_movement >= limit) {                     
@@ -65,7 +66,7 @@ public class MainActivity extends Activity implements SensorEventListener{
                 prevY = curY;
                 prevZ = curZ;
                 last_update = current_time;
-            }*/
+            }
              
              
             ((TextView) findViewById(R.id.textx)).setText("Aceler—metro X: " + curX);
@@ -78,7 +79,7 @@ public class MainActivity extends Activity implements SensorEventListener{
     protected void onResume() {
         super.onResume();
         SensorManager sm = (SensorManager) getSystemService(SENSOR_SERVICE);
-        List<Sensor> sensors = sm.getSensorList(Sensor.TYPE_ACCELEROMETER);        
+        List<Sensor> sensors = sm.getSensorList(Sensor.TYPE_LINEAR_ACCELERATION);        
         if (sensors.size() > 0) {
             sm.registerListener(this, sensors.get(0), SensorManager.SENSOR_DELAY_GAME);
         }
