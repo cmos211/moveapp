@@ -4,27 +4,23 @@
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/texty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="106dp"
-        android:text="Valor de y" />
-
-    <TextView
-        android:id="@+id/textz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
-        android:text="Valor de z" />
-
-    <TextView
         android:id="@+id/textx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textz"
-        android:layout_marginTop="23dp"
-        android:text="Valor de X" />
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="114dp"
+        android:text="@string/cero"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textx"
+        android:layout_alignBottom="@+id/textx"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@+id/textx"
+        android:text="@string/acc" />
 
 </RelativeLayout>

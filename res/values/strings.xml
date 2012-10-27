@@ -1,8 +1,9 @@
 <resources>
 
-    <string name="app_name">moveapp</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Kit Security Road</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
-
+    <string name="title_activity_main">Kit Security Road</string>
+    <string name="acc">m/s2</string>
+	<string name="cero">0.00</string>
+    
 </resources>

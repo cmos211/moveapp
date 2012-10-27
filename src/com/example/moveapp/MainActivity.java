@@ -51,14 +51,15 @@ public class MainActivity extends Activity implements SensorEventListener{
             }
      
             long time_difference = current_time - last_update;
-            if (time_difference > 0) {
+            if (time_difference > 1000000000) {
                 //float movement = Math.abs((curX + curY + curZ) - (prevX - prevY - prevZ)) / time_difference;
             	float movement = (float) Math.abs(Math.sqrt((Math.pow(curX-prevX,2)) + (Math.pow(curY - prevY, 2)) +(Math.pow(curZ - prevZ, 2))));
             	int limit = 1500;
                 float min_movement = 1E-6f;
                 if (movement > min_movement) {
                     if (current_time - last_movement >= limit) {                     
-                        Toast.makeText(getApplicationContext(), "Hay movimiento de " + movement, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "Hay movimiento de " + movement, Toast.LENGTH_SHORT).show();
+                    	((TextView) findViewById(R.id.textx)).setText(((Float)movement).toString().substring(0, 4));
                     }
                     last_movement = current_time;
                 }
@@ -69,9 +70,9 @@ public class MainActivity extends Activity implements SensorEventListener{
             }
              
              
-            ((TextView) findViewById(R.id.textx)).setText("Aceler—metro X: " + curX);
-            ((TextView) findViewById(R.id.texty)).setText("Aceler—metro Y: " + curY);
-            ((TextView) findViewById(R.id.textz)).setText("Aceler—metro Z: " + curZ);
+            
+            //((TextView) findViewById(R.id.texty)).setText("Aceler—metro Y: " + curY);
+            //((TextView) findViewById(R.id.textz)).setText("Aceler—metro Z: " + curZ);
         }   
     }
     
