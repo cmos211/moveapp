@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements SensorEventListener{
 	private long last_update = 0, last_movement = 0;
-	private float prevX = 0, prevY = 0, prevZ = 0;
+	private float prevX = 0, prevY = 0, prevZ = 0,bef_movement=0;
 	private float curX = 0, curY = 0, curZ = 0;
 
 	@Override
@@ -49,24 +49,34 @@ public class MainActivity extends Activity implements SensorEventListener{
                 prevY = curY;
                 prevZ = curZ;
             }
+            
      
             long time_difference = current_time - last_update;
-            if (time_difference > 1000000000) {
+            //if (time_difference > 1000000000) {
                 //float movement = Math.abs((curX + curY + curZ) - (prevX - prevY - prevZ)) / time_difference;
+            if(time_difference>1000000){
             	float movement = (float) Math.abs(Math.sqrt((Math.pow(curX-prevX,2)) + (Math.pow(curY - prevY, 2)) +(Math.pow(curZ - prevZ, 2))));
-            	int limit = 1500;
-                float min_movement = 1E-6f;
-                if (movement > min_movement) {
-                    if (current_time - last_movement >= limit) {                     
+            	if(movement>bef_movement){
+            		bef_movement=movement;
+            	}else {
+            		movement=bef_movement;
+            	}
+            	//int limit = 1500;
+               // float min_movement = 1E-6f;
+               // if (movement > min_movement) {
+                    //if (current_time - last_movement >= limit) {                     
                        // Toast.makeText(getApplicationContext(), "Hay movimiento de " + movement, Toast.LENGTH_SHORT).show();
+            	if (time_difference > 1000000000) {
                     	((TextView) findViewById(R.id.textx)).setText(((Float)movement).toString().substring(0, 4));
-                    }
+                    //}
                     last_movement = current_time;
-                }
+               // }
                 prevX = curX;
                 prevY = curY;
                 prevZ = curZ;
                 last_update = current_time;
+                bef_movement=0;
+             }
             }
              
              
