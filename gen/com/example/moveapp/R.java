@@ -11,18 +11,19 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int green=0x7f060002;
-        public static final int red=0x7f060001;
-        public static final int white=0x7f060003;
-        public static final int yellow=0x7f060000;
+        public static final int green=0x7f040003;
+        public static final int grey=0x7f040000;
+        public static final int red=0x7f040002;
+        public static final int white=0x7f040004;
+        public static final int yellow=0x7f040001;
     }
     public static final class dimen {
-        public static final int BigText=0x7f040000;
-        public static final int BigText100=0x7f040001;
-        public static final int distancia120=0x7f040002;
-        public static final int distancia140=0x7f040004;
-        public static final int distancia20=0x7f040003;
-        public static final int distancia30=0x7f040005;
+        public static final int BigText=0x7f050000;
+        public static final int BigText100=0x7f050001;
+        public static final int distancia120=0x7f050002;
+        public static final int distancia140=0x7f050004;
+        public static final int distancia20=0x7f050003;
+        public static final int distancia30=0x7f050005;
     }
     public static final class drawable {
         public static final int ic_action_search=0x7f020000;
@@ -40,11 +41,11 @@ public final class R {
         public static final int activity_main=0x7f080000;
     }
     public static final class string {
-        public static final int acc=0x7f050004;
-        public static final int app_name=0x7f050000;
-        public static final int cero=0x7f050003;
-        public static final int menu_settings=0x7f050001;
-        public static final int title_activity_main=0x7f050002;
+        public static final int acc=0x7f060004;
+        public static final int app_name=0x7f060000;
+        public static final int cero=0x7f060003;
+        public static final int menu_settings=0x7f060001;
+        public static final int title_activity_main=0x7f060002;
     }
     public static final class style {
         public static final int AppTheme=0x7f070000;
