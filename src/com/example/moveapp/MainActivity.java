@@ -6,11 +6,18 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.TextView;
+import android.media.AsyncPlayer;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements SensorEventListener{
@@ -22,8 +29,8 @@ public class MainActivity extends Activity implements SensorEventListener{
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_main);        
-	    this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
-	}
+	    this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,6 +74,15 @@ public class MainActivity extends Activity implements SensorEventListener{
                        // Toast.makeText(getApplicationContext(), "Hay movimiento de " + movement, Toast.LENGTH_SHORT).show();
             	if (time_difference > 1000000000) {
                     	((TextView) findViewById(R.id.textx)).setText(((Float)movement).toString().substring(0, 4));
+                    	if(movement<=10){
+                    		((TextView) findViewById(R.id.textx)).setTextColor(getResources().getColor(R.color.green));
+                    	}
+                    	if(movement>10 && movement<=20){
+                    		((TextView) findViewById(R.id.textx)).setTextColor(getResources().getColor(R.color.yellow));
+                    	}
+                    	if(movement>20){
+                    		((TextView) findViewById(R.id.textx)).setTextColor(getResources().getColor(R.color.red));
+                    	}
                     //}
                     last_movement = current_time;
                // }
@@ -76,6 +92,9 @@ public class MainActivity extends Activity implements SensorEventListener{
                 last_update = current_time;
                 bef_movement=0;
              }
+            	if(movement >10){
+            		//call();
+            	}
             }
              
              
@@ -100,6 +119,17 @@ public class MainActivity extends Activity implements SensorEventListener{
         SensorManager sm = (SensorManager) getSystemService(SENSOR_SERVICE);        
         sm.unregisterListener(this);
         super.onStop();
+    }
+    
+    private void call(){
+    	try{
+    		Intent callIntent= new Intent(Intent.ACTION_CALL);
+    		callIntent.setData(Uri.parse("tel:638764292"));
+    		
+    		startActivity(callIntent);
+    	}catch(ActivityNotFoundException activityNotFound){
+    		Log.e("...","fail");
+    	}
     }
 
 }
