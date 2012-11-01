@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="BigText">64dp</dimen>
+    <dimen name="BigText100">100dp</dimen>
+    <dimen name="distancia120">120dp</dimen>
+    <dimen name="distancia20">20dp</dimen>
+    <dimen name="distancia140">140dp</dimen>
+    <dimen name="distancia30">30dp</dimen>
+</resources>
