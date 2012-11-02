@@ -37,6 +37,76 @@
         android:text="@string/acc"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/white" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/distancia20"
+        android:layout_marginTop="160dp"
+        android:text="Aceleracion Puntual por Eje"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/white" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="210dp"
+        android:text="Eje X"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/white" />
+     
+    <TextView
+        android:id="@+id/textx3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:text="@string/cero"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/green"
+        android:textSize="30dp" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="250dp"
+        android:text="Eje Y"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/white" />
+    
+    <TextView
+        android:id="@+id/textx4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="240dp"
+        android:text="@string/cero"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/green"
+        android:textSize="30dp" />
+    
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="290dp"
+        android:text="Eje Z"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/white" />
+    
+    <TextView
+        android:id="@+id/textx5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="280dp"
+        android:text="@string/cero"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/green"
+        android:textSize="30dp" />
 
 </FrameLayout>
  

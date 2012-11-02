@@ -77,11 +77,15 @@ public class MainActivity extends Activity implements SensorEventListener{
                     	if(movement<=10){
                     		((TextView) findViewById(R.id.textx)).setTextColor(getResources().getColor(R.color.green));
                     	}
-                    	if(movement>10 && movement<=20){
+                    	if(movement>20 && movement<=30){
                     		((TextView) findViewById(R.id.textx)).setTextColor(getResources().getColor(R.color.yellow));
                     	}
-                    	if(movement>20){
+                    	if(movement>30 && movement<=50){
                     		((TextView) findViewById(R.id.textx)).setTextColor(getResources().getColor(R.color.red));
+                    	}
+                    	if(movement>50){
+                    		((TextView) findViewById(R.id.textx)).setTextColor(getResources().getColor(R.color.red));
+                    		call();
                     	}
                     //}
                     last_movement = current_time;
@@ -92,15 +96,12 @@ public class MainActivity extends Activity implements SensorEventListener{
                 last_update = current_time;
                 bef_movement=0;
              }
-            	if(movement >10){
-            		//call();
-            	}
-            }
-             
-             
+
+            }  
             
-            //((TextView) findViewById(R.id.texty)).setText("Aceler—metro Y: " + curY);
-            //((TextView) findViewById(R.id.textz)).setText("Aceler—metro Z: " + curZ);
+            ((TextView) findViewById(R.id.textx3)).setText("" + curX);
+            ((TextView) findViewById(R.id.textx4)).setText("" + curY);
+            ((TextView) findViewById(R.id.textx5)).setText("" + curZ);
         }   
     }
     
@@ -124,7 +125,7 @@ public class MainActivity extends Activity implements SensorEventListener{
     private void call(){
     	try{
     		Intent callIntent= new Intent(Intent.ACTION_CALL);
-    		callIntent.setData(Uri.parse("tel:638764292"));
+    		callIntent.setData(Uri.parse("tel:0000000"));
     		
     		startActivity(callIntent);
     	}catch(ActivityNotFoundException activityNotFound){
